@@ -10,10 +10,10 @@ function IncomeItem({income, index, removeUser}) {
   return (
     <div className="income-item">
       <button className="remove-item" onClick={() => removeHandle(index)}>x</button>
-      <div className="desc">{income.choosedUser}</div>
-      <div className="desc">{income.desc}</div>
-      <div className="project">{income.project}</div>
-      <div className="date">{income.spentTime}</div>
+      <div className="desc">Name: {income.choosedUser}</div>
+      <div className="project">Project: {income.project}</div>
+      <div className="desc">Description of task: {income.desc}</div>
+      <div className="date">Working time: {((income.spentTime / 1000) / 60).toFixed(2)}min</div>
     </div>
   )
 }
