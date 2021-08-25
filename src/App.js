@@ -7,13 +7,13 @@ import IncomeList from './components/IncomeList';
 function App() {
 	const [income, setIncome] = useState([]);
 	const [totalIncome, setTotalIncome] = useState(0);
+	const [trackerVisible, setTrackerVisible] = useState(true)
 
 	useEffect(() => {
 		let temp = 0;
 		for(let i = 0; i < income.length; i++) {
 			temp += parseInt(income[i].price);
 		}
-
 		setTotalIncome(temp);
 	}, [income]);
 	
@@ -21,8 +21,13 @@ function App() {
 	return (
 		<div className="App">
 			<Header totalIncome={totalIncome} />
-			<IncomeForm income={income} setIncome={setIncome} />
-			<IncomeList income={income} setIncome={setIncome} />
+			<button onClick={() => setTrackerVisible(true)}>Tracker</button>
+			<button onClick={() => setTrackerVisible(false)}>Time List</button>
+			{trackerVisible ?
+			(<IncomeForm income={income} setIncome={setIncome} />)
+			:
+			(<IncomeList income={income} setIncome={setIncome} />)
+}
 		</div>
 	);
 }

@@ -3,20 +3,19 @@ import getAllUsersList from '../api';
 
 function IncomeForm({ income, setIncome }) {
   const desc = useRef(null);
-  const date = useRef(null);
   const project = useRef(null);
   const choosedUser = useRef(null);
   const [users, setUsers] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [startStop, setStartStop] = useState('Start');
 
-  const AddIncome = (spentTime) => {
-    console.log(spentTime)
+  function AddIncome(spentTime) {
     setIncome([...income, {
       "desc": desc.current.value,
       "project": project.current.value,
       "choosedUser": choosedUser.current.value,
-      "spentTime": spentTime
+      "spentTime": spentTime,
+      "isFaw": false
     }]);
 
     desc.current.value = "";
@@ -25,9 +24,6 @@ function IncomeForm({ income, setIncome }) {
   const getUsers = async () => {
     const usersData = await getAllUsersList()
     setUsers(usersData)
-    setIncome([...income, {
-      "choosedUser": usersData[0].name
-    }]);
   }
 
   function trackTime() {
@@ -38,7 +34,6 @@ function IncomeForm({ income, setIncome }) {
         var spentTime = (endTime - startTime)
         setStartTime(null)
         AddIncome(spentTime)
-        
       }
       else {
         setStartTime(new Date())
@@ -58,7 +53,7 @@ function IncomeForm({ income, setIncome }) {
   return (
     <>
       {users &&
-        <form className="track-form" onSubmit={AddIncome}>
+        <form className="track-form">
           <div className="form-inner">
             <select name="users" id="users" ref={choosedUser}>
               {users.map((user) => {
