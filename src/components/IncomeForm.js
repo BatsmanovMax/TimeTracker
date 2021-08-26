@@ -55,12 +55,12 @@ function IncomeForm({ income, setIncome }) {
       {users &&
         <form className="track-form">
           <div className="form-inner">
-            <select name="users" id="users" ref={choosedUser}>
+            <select name="users" className="select" id="users" ref={choosedUser}>
               {users.map((user) => {
                 return <option value={user.name} key={user.id}>{user.name}</option>
               })}
-            </select>
-            <input type="text" name="project" id="project" placeholder="project..." ref={project} />
+            </select><br/>
+            <input type="text" name="project" id="project" placeholder="Name of project..." ref={project} />
             <input type="text" name="desc" id="desc" placeholder="Description of task..." ref={desc} />
             <input type="button" value={startStop} onClick={() => trackTime()} />
           </div>

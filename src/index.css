@@ -1,13 +1,132 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  font-family: Gill Sans;
+}
+body{
+  
+  background-color: #efd091;
+}
+input, button {
+	border: none;
+	background-color: azure;
+}
+button {
+  cursor: pointer;
+  border: 1px solid #ba7735 ;
+  margin-left: 1px;
+  
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+.navbar {
+  margin: 1 px;
+  font-size: 20px;
+  float: right;
+  border: none;
+	background-color: #85aac5;
+}
+.navbar:hover {
+  background-color:  #85aac5;
+}
+.navbar:focus {
+  background-color:  #024f94;
+  ;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.App {
+	padding: 10px;
+  font-size: 18px;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+}
+h1 {
+	color: var(--grey);
+	font-size: 32px;
+	font-weight: 900;
+	text-align: left;
+}
+.income-form {
+	display: block;
+	margin: 15px;
+	position: relative;
+}
+
+.income-list {
+  text-align: center;
+  padding:5px;
+  padding-bottom: 40px;
+}
+.form-inner{
+  text-align: center;
+}
+
+
+select {
+  margin-left: 40%;
+  display: block;
+  width: 20%;
+  background: none;
+  border: 1px solid #ba7735;
+  border-radius: 3px;
+  appearance: none;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #444;
+}
+
+select:after {
+  content: "";
+  display: block;
+  border-style: solid;
+  border-width: 6px 5px 0 5px;
+  border-color: #000 transparent transparent transparent;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  z-index: 1;
+  margin-top: -3px;
+}
+input{
+  margin-left: 2px;
+}
+
+
+.button {
+  background: #000;
+ color: #fff;
+ z-index: 1;
+ padding-bottom: 10px;
+}
+.button:after {
+ position: absolute;
+ content: "";
+ width: 0;
+ height: 100%;
+ top: 0;
+ left: 0;
+ direction: rtl;
+ z-index: -1;
+ background: #e0e5ec;
+ transition: all 0.3s ease;
+}
+button:hover {
+ color: #000;
+}
+button:hover:after {
+ left: auto;
+ right: 0;
+ width: 100%;
+}
+button:active {
+ top: 2px;
+}
+.income-item{
+  padding: 20px;
 }

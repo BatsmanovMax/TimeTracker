@@ -21,8 +21,8 @@ function App() {
 	return (
 		<div className="App">
 			<Header totalIncome={totalIncome} />
-			<button onClick={() => setTrackerVisible(true)}>Tracker</button>
-			<button onClick={() => setTrackerVisible(false)}>Time List</button>
+			<button className="navbar" onClick={() => setTrackerVisible(true)}>Tracker</button>
+			<button className="navbar" onClick={() => setTrackerVisible(false)}>Time List</button>
 			{trackerVisible ?
 			(<IncomeForm income={income} setIncome={setIncome} />)
 			:
